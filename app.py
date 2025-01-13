@@ -14,3 +14,7 @@ def academic_schedule():
 @app.route('/fests')
 def fests():
     return render_template('fest.html')
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
