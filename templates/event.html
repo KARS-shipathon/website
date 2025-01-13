@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Cards with Side Panel</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Basic Reset and Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      display: flex;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    /* Side Panel */
+    .side-panel {
+      width: 250px;
+      height: 100%;
+      background-color: #2C3E50;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      padding-top: 20px;
+      position: fixed;
+    }
+
+    .side-panel img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-bottom: 3px solid #fff;
+    }
+
+    .side-panel .options {
+      margin-top: 20px;
+    }
+
+    .side-panel .options a {
+      display: block;
+      padding: 15px;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      border-bottom: 1px solid #fff;
+      transition: background-color 0.3s;
+    }
+
+    .side-panel .options a:hover {
+      background-color: #34495E;
+    }
+
+    .main-content {
+      margin-left: 260px;
+      width: 100%;
+      padding: 20px;
+    }
+
+    /* Event Cards Section */
+    .event-cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .event-card {
+      width: 250px;
+      height: 350px;
+      perspective: 1000px;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+    }
+
+    .event-card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .card-front {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-back {
+      background-color: #f8f8f8;
+      color: #333;
+      padding: 20px;
+      transform: rotateY(180deg);
+    }
+
+    .card-front img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-bottom: 2px solid #eee;
+    }
+
+    .card-info {
+      text-align: center;
+      padding: 10px;
+    }
+
+    .card-info h3 {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .card-info p {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+
+    .card-back .description {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Side Panel -->
+  <div class="side-panel">
+    <!-- Profile Image -->
+    <img src="logo.png" alt="Profile Image">
+    
+    <!-- Options List -->
+    <div class="options">
+      <a href="student_protal.html">Dashboard</a>
+      <a href="profile.html">Profile</a>
+      <a href="event.html">Event</a>
+      <a href="academic_schedule.html">Edit Academic Schedule</a>
+      <a href="login page.html">Logout</a>
+    </div>
+  </div>
+
+  <!-- Main Content (Event Cards) -->
+  <div class="main-content">
+    <h1>Upcoming Events</h1>
+    
+    <div class="event-cards">
+      <!-- Event Card 1 -->
+      <div class="event-card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://via.placeholder.com/250x150" alt="Event Image">
+            <div class="card-info">
+              <h3>Event 1</h3>
+              <p>Time: 6:00 PM</p>
+              <p>Venue: City Hall</p>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="description">
+              <h4>Event 1 Description</h4>
+              <p>This event is designed to showcase some of the latest innovations in technology. It includes keynote speeches, workshops, and networking opportunities.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event Card 2 -->
+      <div class="event-card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://via.placeholder.com/250x150" alt="Event Image">
+            <div class="card-info">
+              <h3>Event 2</h3>
+              <p>Time: 9:00 AM</p>
+              <p>Venue: Convention Center</p>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="description">
+              <h4>Event 2 Description</h4>
+              <p>This event will focus on the future of digital marketing, offering various sessions for professionals looking to enhance their skills and knowledge.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event Card 3 -->
+      <div class="event-card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://via.placeholder.com/250x150" alt="Event Image">
+            <div class="card-info">
+              <h3>Event 3</h3>
+              <p>Time: 1:00 PM</p>
+              <p>Venue: Grand Arena</p>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="description">
+              <h4>Event 3 Description</h4>
+              <p>This event will gather experts in the world of finance to discuss the latest trends, opportunities, and challenges in the industry.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

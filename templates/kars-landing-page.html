@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KARS - IIT Delhi Event Manager</title>
+    <style>
+        :root {
+            --primary: #5D3FD3;
+            --secondary: #9747FF;
+            --text: #1F2937;
+            --bg-light: #F3F4F6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            display: none; /* Hide the text KARS since it's in the logo */
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .features {
+            padding: 4rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .cta {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                width: 100px;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="KARS Logo" class="logo">
+        <h1>KARS</h1>
+        <p>Your personalized IIT Delhi event and academic schedule manager powered by AI</p>
+    </section>
+
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Smart Event Discovery</h3>
+                <p>Our AI-powered system analyzes events from clubs, seminars, and talks across IIT Delhi to show you what's most relevant to your interests. Never miss an opportunity that aligns with your passions.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Academic Schedule Integration</h3>
+                <p>Seamlessly sync your course schedule with your calendar. KARS automatically organizes your academic commitments based on your enrolled courses, helping you stay on top of your studies.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Automated Event Processing</h3>
+                <p>Club executives can simply share their regular event announcements. Our ML model automatically extracts key information like time, location, and registration details, making event management effortless.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Ready to streamline your IIT Delhi experience?</h2>
+        <p>Join KARS today and never miss an important event or class again.</p>
+        <a href="#" class="button">Get Started</a>
+    </section>
+</body>
+</html>

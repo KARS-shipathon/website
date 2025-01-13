@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="main-nav">
+            <h1>Event Management System</h1>
+            <div class="nav-links">
+                <a href="student.html">Student Portal</a>
+                <a href="club.html">Club Executive Portal</a>
+                <a href="department.html">Department Head Portal</a>
+                <a href="fest.html">Fest Executive Portal</a>
+            </div>
+        </nav>
+
+        <main>
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button class="tab-btn active" onclick="showLogin()">Login</button>
+                    <button class="tab-btn" onclick="showRegister()">Register</button>
+                </div>
+
+                <form id="loginForm" class="auth-form">
+                    <h2>Login</h2>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <select name="role" required>
+                        <option value="">Select Role</option>
+                        <option value="student">Student</option>
+                        <option value="club">Club Executive</option>
+                        <option value="department">Department Head</option>
+                        <option value="fest">Fest Executive</option>
+                    </select>
+                    <button type="submit">Login</button>
+                </form>
+
+                <form id="registerForm" class="auth-form hidden">
+                    <h2>Register</h2>
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <input type="password" placeholder="Confirm Password" required>
+                    <select name="role" required>
+                        <option value="">Select Role</option>
+                        <option value="student">Student</option>
+                        <option value="club">Club Executive</option>
+                        <option value="department">Department Head</option>
+                        <option value="fest">Fest Executive</option>
+                    </select>
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

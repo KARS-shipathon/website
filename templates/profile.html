@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .profile-container {
+            background-color: #fff;
+            width: 450px;
+            border-radius: 16px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            border-top: 6px solid #6a5acd;
+        }
+        .profile-container img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid #6a5acd;
+        }
+        .profile-container h2 {
+            margin: 10px 0;
+            color: #6a5acd;
+            font-size: 1.5rem;
+        }
+        .profile-container p {
+            margin: 5px 0;
+            color: #333;
+            font-size: 1rem;
+        }
+        .profile-container .edit-section {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .profile-container label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #6a5acd;
+            font-weight: bold;
+        }
+        .profile-container input[type="text"], 
+        .profile-container select, 
+        .profile-container input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+        .profile-container button {
+            background-color: #6a5acd;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+            width: 100%;
+        }
+        .profile-container button:hover {
+            background-color: #6a5acd;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <img src="default-profile.png" alt="Profile Photo" id="profilePhoto">
+        <h2 id="profileName">John Doe</h2>
+        <p><strong>Department:</strong> <span id="profileDepartment">Computer Science</span></p>
+        <p><strong>Interest:</strong> <span id="profileInterest">Artificial Intelligence</span></p>
+        <p><strong>Blood Group:</strong> <span id="profileBloodGroup">O+</span></p>
+
+        <div class="edit-section">
+            <label for="profilePhotoInput">Change Photo</label>
+            <input type="file" id="profilePhotoInput">
+
+            <label for="profileNameInput">Edit Name</label>
+            <input type="text" id="profileNameInput" placeholder="Enter your name">
+
+            <label for="profileDepartmentInput">Edit Department</label>
+            <input type="text" id="profileDepartmentInput" placeholder="Enter your department">
+
+            <label for="profileInterestInput">Edit Interest</label>
+            <input type="text" id="profileInterestInput" placeholder="Enter your interests">
+
+            <label for="profileBloodGroupInput">Edit Blood Group</label>
+            <input type="text" id="profileBloodGroupInput" placeholder="Enter your blood group">
+
+            <button onclick="updateProfile()">Save Changes</button>
+        </div>
+    </div>
+
+    <script>
+        function updateProfile() {
+            const nameInput = document.getElementById('profileNameInput').value;
+            const departmentInput = document.getElementById('profileDepartmentInput').value;
+            const interestInput = document.getElementById('profileInterestInput').value;
+            const bloodGroupInput = document.getElementById('profileBloodGroupInput').value;
+            const photoInput = document.getElementById('profilePhotoInput').files[0];
+
+            if (nameInput) {
+                document.getElementById('profileName').textContent = nameInput;
+            }
+
+            if (departmentInput) {
+                document.getElementById('profileDepartment').textContent = departmentInput;
+            }
+
+            if (interestInput) {
+                document.getElementById('profileInterest').textContent = interestInput;
+            }
+
+            if (bloodGroupInput) {
+                document.getElementById('profileBloodGroup').textContent = bloodGroupInput;
+            }
+
+            if (photoInput) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('profilePhoto').src = e.target.result;
+                };
+                reader.readAsDataURL(photoInput);
+            }
+
+            alert('Profile updated successfully!');
+        }
+    </script>
+</body>
+</html>
