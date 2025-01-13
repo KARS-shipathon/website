@@ -24,6 +24,30 @@
             line-height: 1.6;
         }
 
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            padding: 1rem 2rem;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            margin-left: 1rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: background 0.2s;
+        }
+
+        .navbar a:hover {
+            background: var(--bg-light);
+        }
+
         .hero {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
@@ -83,22 +107,6 @@
             background: white;
         }
 
-        .button {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 1rem;
-            transition: transform 0.2s;
-        }
-
-        .button:hover {
-            transform: translateY(-2px);
-        }
-
         @media (max-width: 768px) {
             .logo {
                 width: 100px;
@@ -115,6 +123,11 @@
     </style>
 </head>
 <body>
+    <div class="navbar">
+        <a href="/login">Login</a>
+        <a href="/signup">Sign Up</a>
+    </div>
+    
     <section class="hero">
         <img src="{{ url_for('static', filename='images/logo_nobg.png') }}" alt="KARS Logo" class="logo">
         <h1>KARS</h1>
@@ -141,7 +154,6 @@
     <section class="cta">
         <h2>Ready to streamline your IIT Delhi experience?</h2>
         <p>Join KARS today and never miss an important event or class again.</p>
-        <a href="#" class="button">Get Started</a>
     </section>
 </body>
 </html>
