@@ -1,10 +1,16 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Hello, Render!"
+    return render_template('kars-landing-page.html')
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# Add routes for other pages
+@app.route('/academicschedule')
+def academic_schedule():
+    return render_template('academic_schedule.html')
+
+@app.route('/fests')
+def fests():
+    return render_template('fest.html')
